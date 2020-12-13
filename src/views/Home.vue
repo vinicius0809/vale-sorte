@@ -1,16 +1,8 @@
 <template>
-  <div id="home">
-    <label for="numero-valesorte" class="dados"
-    ><strong>Insira o número do certificado</strong></label
-    >
-    <input
-    type="number"
-    id="numero-valesorte"
-    class="dados"
-    v-model="numeroCertificado"
-    />
-    <label for="data-sorteio" class="dados"
-    ><strong>Data do sorteio</strong>
+<div id="home">
+  <label for="numero-valesorte" class="dados"><strong>Insira o número do certificado</strong></label>
+  <input type="number" id="numero-valesorte" class="dados" v-model="numeroCertificado" />
+  <label for="data-sorteio" class="dados"><strong>Data do sorteio</strong>
   </label>
   <input type="date" id="data-sorteio" class="dados" v-model="dataSorteio" />
   <button id="enviar-numero" class="dados" @click="verificaCertificado()">
@@ -25,20 +17,21 @@ export default {
   data() {
     return {
       numeroCertificado: 0,
-      dataSorteio: new Date().toISOString().slice(0,10)
+      dataSorteio: new Date().toISOString().slice(0, 10)
     };
   },
   methods: {
     verificaCertificado() {
       let rota = this.dataSorteio + "/" + this.numeroCertificado;
-      if(rota != ""){
+      if (rota != "") {
         rota = "/inserir-certificado/" + rota;
-      }
-      else{
+      } else {
         rota = "/visualizar-certificado/" + rota;
       }
 
-      this.$router.push({path: rota});
+      this.$router.push({
+        path: rota
+      });
     },
   },
 };
@@ -49,6 +42,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
 .dados {
   grid-column-start: 2;
 }
