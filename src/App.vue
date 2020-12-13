@@ -2,7 +2,7 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/inserir-certificado">Inserir Certificado</router-link>
+    <router-link to="/inserir-certificado/0/0">Inserir Certificado</router-link>
   </div>
   <router-view/>
 </template>

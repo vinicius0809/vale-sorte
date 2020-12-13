@@ -1,22 +1,22 @@
 <template>
   <div id="home">
     <label for="numero-valesorte" class="dados"
-      ><strong>Insira o número do certificado</strong></label
+    ><strong>Insira o número do certificado</strong></label
     >
     <input
-      type="number"
-      id="numero-valesorte"
-      class="dados"
-      v-model="numeroCertificado"
+    type="number"
+    id="numero-valesorte"
+    class="dados"
+    v-model="numeroCertificado"
     />
     <label for="data-sorteio" class="dados"
-      ><strong>Data do sorteio</strong>
-    </label>
-    <input type="date" id="data-sorteio" class="dados" v-model="dataSorteio" />
-    <button id="enviar-numero" class="dados" @click="verificaCertificado()">
-      Enviar
-    </button>
-  </div>
+    ><strong>Data do sorteio</strong>
+  </label>
+  <input type="date" id="data-sorteio" class="dados" v-model="dataSorteio" />
+  <button id="enviar-numero" class="dados" @click="verificaCertificado()">
+    Enviar
+  </button>
+</div>
 </template>
 
 <script>
@@ -25,14 +25,20 @@ export default {
   data() {
     return {
       numeroCertificado: 0,
-      dataSorteio: new Date().toLocaleDateString(),
+      dataSorteio: new Date().toISOString().slice(0,10)
     };
   },
   methods: {
     verificaCertificado() {
-      this.$router.push({
-        path: "inserir-certificado/" + this.numeroCertificado
-      });
+      let rota = this.dataSorteio + "/" + this.numeroCertificado;
+      if(rota != ""){
+        rota = "/inserir-certificado/" + rota;
+      }
+      else{
+        rota = "/visualizar-certificado/" + rota;
+      }
+
+      this.$router.push({path: rota});
     },
   },
 };

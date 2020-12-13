@@ -9,12 +9,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/inserir-certificado',
-    name: 'InserirCertificado',
-    component: InserirCertificado
-  },
-  {
-    path: '/inserir-certificado/:numeroCertificado',
+    path: '/inserir-certificado/:dataSorteio/:numeroCertificado',
     name: 'InserirCertificado',
     component: InserirCertificado
   },
