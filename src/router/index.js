@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import InserirCertificado from '../views/InserirCertificado.vue'
+import VisualizarCertificado from '../views/VisualizarCertificado.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/inserir-certificado/:dataSorteio/:numeroCertificado',
     name: 'InserirCertificado',
     component: InserirCertificado
+  },
+  {
+    path: '/visualizar-certificado/:dataSorteio/:numeroCertificado',
+    name: 'VisualizarCertificado',
+    component: VisualizarCertificado
   },
   {
     path: '/about',
